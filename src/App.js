@@ -1,26 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
+import AppBar from './components/AppBar/AppBar';
+import Dropdown from './components/Dropdown/Dropdown';
+import WritingSystem from './components/WritingSystem/WritingSystem';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      language: 'english' 
+    }
+  }
+  
+  selectLanguage  = (language) => {
+    this.setState({language: language})
+  }
+
+  render(){
+    return (
+      <div className="App">
+        <AppBar />
+        <Dropdown selectLanguage={this.selectLanguage}/>
+        <WritingSystem language = {this.state.language}/>
+      </div>
+    );
+  }
 }
 
 export default App;
