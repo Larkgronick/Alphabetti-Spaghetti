@@ -30,7 +30,7 @@ export default function ButtonAppBar() {
           <span className='title'>
             Alphabetti Spaghetti
           </span>
-          <Button color="inherit">Login</Button>
+          <Button color="inherit">Log Out</Button>
         </Toolbar>
       </AppBar>
     </div>
